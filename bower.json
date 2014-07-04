@@ -1,7 +1,6 @@
 {
   "name": "doresol_timeline",
   "version": "0.0.1",
-  "homepage": "http://timeline.knightlab.com",
   "description": "modification of timeline.js for doresol",
   "main": [
     "build/js/timeline.js",
