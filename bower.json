@@ -1,0 +1,24 @@
+{
+  "name": "doresol_timeline",
+  "version": "0.0.1",
+  "homepage": "http://timeline.knightlab.com",
+  "description": "modification of timeline.js for doresol",
+  "main": [
+    "build/js/timeline.js",
+    "build/css/timeline.css"    
+  ],
+  "keywords": [
+    "doresol",
+    "timeline",
+    "timelinejs",
+    "timeline.js"
+  ],
+  "repository": {
+  "type": "git",
+  "url": "git@github.com:SunJang/TimelineJS.git"
+  },
+  "license": "MPL v2.0",
+  "ignore": [
+    "**/.*"    
+  ]
+}
