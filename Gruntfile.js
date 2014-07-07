@@ -77,6 +77,14 @@ module.exports = function (grunt) {
       },
     },
 
+    uglify: {
+      js: {
+        files: {
+          '<%= distFolder %>/js/timeline-min.js': ['<%= distFolder %>/js/timeline.js']
+        }
+      }
+    },
+
     copy: {
       css: {
         expand: true,
@@ -111,6 +119,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'concat:dist',
+    'uglify:js',
     'less:dist',
     'copy:css'    
   ]);
