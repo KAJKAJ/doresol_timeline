@@ -1,6 +1,6 @@
 {
   "name": "doresol_timeline",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "modification of timeline.js for doresol",
   "main": [
     "build/js/timeline.js",
