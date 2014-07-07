@@ -9241,36 +9241,37 @@ LoadLib = (function (doc) {
 ================================================== */
 if(typeof VMM != 'undefined' && typeof VMM.Language == 'undefined') {
 	VMM.Language = {
-		lang: "en",
+		lang: "ko",
 		api: {
-			wikipedia: "en"
+			wikipedia: "ko"
 		},
 		date: {
-			month: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-			month_abbr: ["Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."],
-			day: ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-			day_abbr: ["Sun.","Mon.", "Tues.", "Wed.", "Thurs.", "Fri.", "Sat."]
+			month: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+			month_abbr: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+			day: ["일요일" , "월요일" , "화요일" , "수요일" , "목요일" , "금요일" , "토요일"],
+			day_abbr: ["일" , "월" , "화" , "수" , "목" , "금" , "토"]
 		}, 
 		dateformats: {
 			year: "yyyy",
 			month_short: "mmm",
-			month: "mmmm yyyy",
+			month: "yyyy mmm",
 			full_short: "mmm d",
-			full: "mmmm d',' yyyy",
-			time_short: "h:MM:ss TT",
-			time_no_seconds_short: "h:MM TT",
-			time_no_seconds_small_date: "h:MM TT'<br/><small>'mmmm d',' yyyy'</small>'",
-			full_long: "mmm d',' yyyy 'at' h:MM TT",
-			full_long_small_date: "h:MM TT'<br/><small>mmm d',' yyyy'</small>'"
+			full: "yyyy mmm d ",
+			time_short: "HH:MM:ss",
+			time_no_seconds_short: "HH:MM",
+			time_no_seconds_small_date: "HH:MM'<br/><small>'yyyy mmm d'</small>'",
+			full_long: "dddd',' d mmm yyyy 'um' HH:MM",
+			full_long_small_date: "HH:MM'<br/><small>'dddd','yyyy mmm d'</small>'"
 		},
 		messages: {
-			loading_timeline: "Loading Timeline... ",
-			return_to_title: "Return to Title",
-			expand_timeline: "Expand Timeline",
-			contract_timeline: "Contract Timeline",
-			wikipedia: "From Wikipedia, the free encyclopedia",
-			loading_content: "Loading Content",
-			loading: "Loading"
+			loading_timeline: "타임라인을 불러오고 있습니다.... ",
+			return_to_title: "첫화면으로",
+			expand_timeline: "타임라인 확대",
+			contract_timeline: "타임라인 축소",
+			wikipedia: "출처: 위키피디아, 우리 모두의 백과사전",
+			loading_content: "내용을 불러오고 있습니다.",
+			loading: "불러오는중"
+			
 		}
 	}
 };;/* External API
