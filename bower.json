@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "description": "modification of timeline.js for doresol",
   "main": [
-    "build/js/timeline-min.js",
+    "build/js/timeline.js",
     "build/css/timeline.css"    
   ],
   "keywords": [
