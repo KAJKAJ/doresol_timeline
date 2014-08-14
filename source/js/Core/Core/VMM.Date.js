@@ -74,8 +74,8 @@ if(typeof VMM != 'undefined' && typeof VMM.Date == 'undefined') {
 			} else {
 				date = new Date(0, 0, 1, 0, 0, 0, 0);
 				
-				if ( d.match(/,/gi) ) {
-					date_array = d.split(",");
+				if ( d.match(/-/gi) ) {
+					date_array = d.split("-");
 					for(var i = 0; i < date_array.length; i++) {
 						date_array[i] = parseInt(date_array[i], 10);
 					}
