@@ -592,7 +592,7 @@ if(typeof VMM != 'undefined' && typeof VMM.Timeline == 'undefined') {
 						_date.slug				= data.date[i].slug;
 						_date.uniqueid			= VMM.Util.unique_ID(7);
 						_date.classname			= data.date[i].classname;
-						
+						_date.story = data.date[i];
 						
 						_dates.push(_date);
 					} 
