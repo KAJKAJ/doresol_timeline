@@ -232,8 +232,9 @@ if (typeof VMM.Slider != 'undefined') {
 			}
 
 			//temp headline mapping
-			c.text += "<div><input type='text' ng-model=\"storiesObject[\'" + data.story.ref_era + "\'][\'" + data.story.$id + "\']\"></input></div>";
-			
+      // if(data.story != undefined){
+      //   c.text += "<div><input type='text' ng-model=\"storiesObject[\'" + data.story.ref_era + "\'][\'" + data.story.$id + "\'].headline\"/></div>";
+      // }
 			/* TEXT
 			================================================== */
 			if (data.text != null && data.text != "") {
