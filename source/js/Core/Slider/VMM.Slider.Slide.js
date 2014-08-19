@@ -230,6 +230,9 @@ if (typeof VMM.Slider != 'undefined') {
 					c.text		+=	VMM.createElement("h3", VMM.Util.linkify_with_twitter(data.headline, "_blank"));
 				}
 			}
+
+			//temp headline mapping
+			c.text += "<div><input type='text' ng-model=\"storiesObject[\'" + data.story.ref_era + "\'][\'" + data.story.$id + "\']\"></input></div>";
 			
 			/* TEXT
 			================================================== */
@@ -243,7 +246,6 @@ if (typeof VMM.Slider != 'undefined') {
 				//$text		=	VMM.appendAndGetElement($slide, "<div>", "text", c.text);
 				
 				$text		= VMM.appendAndGetElement($slide, "<div>", "text", VMM.TextElement.create(c.text));
-				angularCompile($text);
 			}
 			
 			/* SLUG
@@ -281,6 +283,7 @@ if (typeof VMM.Slider != 'undefined') {
 				VMM.Lib.addClass($slide, c.layout);
 			}
 			
+			angularCompile($wrap);
 			
 		};
 		
