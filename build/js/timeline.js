@@ -12546,6 +12546,14 @@ if (typeof VMM.Slider != 'undefined') {
 			}
 		}
 		
+		var angularCompile = function(element){
+			var injector = element.injector();
+      var scope = element.scope();
+      injector.invoke(function($compile){
+        $compile(element.contents())(scope);
+      });
+		};
+
 		var buildSlide = function() {
 			trace("BUILDSLIDE");
 			$wrap	= VMM.appendAndGetElement(element, "<div>", "content");
@@ -12597,7 +12605,7 @@ if (typeof VMM.Slider != 'undefined') {
 				//$text		=	VMM.appendAndGetElement($slide, "<div>", "text", c.text);
 				
 				$text		= VMM.appendAndGetElement($slide, "<div>", "text", VMM.TextElement.create(c.text));
-				
+				angularCompile($text);
 			}
 			
 			/* SLUG
