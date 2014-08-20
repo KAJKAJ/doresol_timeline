@@ -259,7 +259,7 @@ if (typeof VMM.Slider != 'undefined') {
         if (data.type == "start") {
           c.text    = VMM.createElement("div", c.text, "container");
         } else {
-          c.text    = VMM.createElement("story-detail", null, null, "story-key="+data.story.$id+" add-comment='addComment()'");
+          c.text    = VMM.createElement("story-detail", null, null,"story=\"storiesObject[\'"+data.story.ref_era+"\'][\'"+data.story.$id+"\']\" add-comment=\"addComment(comment)\"");
         }
         $text   = VMM.appendAndGetElement($slide, "<div>", "text", VMM.TextElement.create(c.text));  
 			}
