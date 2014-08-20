@@ -199,54 +199,68 @@ if (typeof VMM.Slider != 'undefined') {
 			
 			/* DATE
 			================================================== */
-			if (data.startdate != null && data.startdate != "") {
-				if (type.of(data.startdate) == "date") {
-					if (data.type != "start") {
-						var st	= VMM.Date.prettyDate(data.startdate, false, data.precisiondate);
-						var en	= VMM.Date.prettyDate(data.enddate, false, data.precisiondate);
-						var tag	= "";
-						/* TAG / CATEGORY
-						================================================== */
-						if (data.tag != null && data.tag != "") {
-							tag		= VMM.createElement("span", data.tag, "slide-tag");
-						}
+			// if (data.startdate != null && data.startdate != "") {
+			// 	if (type.of(data.startdate) == "date") {
+			// 		if (data.type != "start") {
+			// 			var st	= VMM.Date.prettyDate(data.startdate, false, data.precisiondate);
+			// 			var en	= VMM.Date.prettyDate(data.enddate, false, data.precisiondate);
+			// 			var tag	= "";
+			// 			 TAG / CATEGORY
+			// 			================================================== 
+			// 			if (data.tag != null && data.tag != "") {
+			// 				tag		= VMM.createElement("span", data.tag, "slide-tag");
+			// 			}
 						
-						if (st != en) {
-							c.text += VMM.createElement("h2", st + " &mdash; " + en + tag, "date");
-						} else {
-							c.text += VMM.createElement("h2", st + tag, "date");
-						}
-					}
-				}
-			}
+			// 			if (st != en) {
+			// 				c.text += VMM.createElement("h2", st + " &mdash; " + en + tag, "date");
+			// 			} else {
+			// 				c.text += VMM.createElement("h2", st + tag, "date");
+			// 			}
+			// 		}
+			// 	}
+			// }
 			
-			/* HEADLINE
+						/* HEADLINE
 			================================================== */
 			if (data.headline != null && data.headline != "") {
 				c.has.headline	=	true;
 				if (data.type == "start") {
 					c.text		+=	VMM.createElement("h2", VMM.Util.linkify_with_twitter(data.headline, "_blank"), "start");
 				} else { 
-					c.text		+=	VMM.createElement("h3", VMM.Util.linkify_with_twitter(data.headline, "_blank"));
+
+          // // if(data.story != undefined){
+          // //   var strHeadLine = "{{storiesObject['"+ data.story.ref_era + "']['" + data.story.$id + "'].headline}}";
+          // //   c.text += VMM.createElement("h3", VMM.Util.linkify_with_twitter(strHeadLine, "_blank"), "editable editable-click ng-scope ng-binding", "editable-text=\"storiesObject[\'" + data.story.ref_era + "\'][\'" + data.story.$id + "\'].headline\" href='#'");
+          // // };
+          // c.text		+=	VMM.createElement("h3", VMM.Util.linkify_with_twitter(data.headline, "_blank"));
 				}
 			}
 
-			//temp headline mapping
-      // if(data.story != undefined){
-      //   c.text += "<div><input type='text' ng-model=\"storiesObject[\'" + data.story.ref_era + "\'][\'" + data.story.$id + "\'].headline\"/></div>";
-      // }
 			/* TEXT
 			================================================== */
 			if (data.text != null && data.text != "") {
 				c.has.text		=  true;
-				c.text			+= VMM.createElement("p", VMM.Util.linkify_with_twitter(data.text, "_blank"));
+
+        // if(data.story != undefined){
+        //   var strText = "{{storiesObject['"+ data.story.ref_era + "']['" + data.story.$id + "'].text}}";
+        //   c.text += VMM.createElement("p", VMM.Util.linkify_with_twitter(strText, "_blank"), "editable editable-click ng-scope ng-binding", "editable-text=\"storiesObject[\'" + data.story.ref_era + "\'][\'" + data.story.$id + "\'].text\" href='#'");
+        //   c.text += VMM.createElement("story-comments", null, null, "story-key="+data.story.$id);
+        // };
+        if (data.type == "start") {
+          c.text			+= VMM.createElement("p", VMM.Util.linkify_with_twitter(data.text, "_blank"));
+        }
 			}
 			
 			if (c.has.text || c.has.headline) {
 				c.text		= VMM.createElement("div", c.text, "container");
 				//$text		=	VMM.appendAndGetElement($slide, "<div>", "text", c.text);
-				
-				$text		= VMM.appendAndGetElement($slide, "<div>", "text", VMM.TextElement.create(c.text));
+
+        if (data.type == "start" ) {
+          $text   = VMM.appendAndGetElement($slide, "<div>", "text", VMM.TextElement.create(c.text));  
+        } else {
+          c.text  = VMM.createElement('story-detail', null, null, "story-key="+data.story.$id);
+          $text   = VMM.appendAndGetElement($slide, "<div>", "text", VMM.TextElement.create(c.text));
+        }
 			}
 			
 			/* SLUG
