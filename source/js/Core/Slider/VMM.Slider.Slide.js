@@ -220,20 +220,21 @@ if (typeof VMM.Slider != 'undefined') {
 			// 	}
 			// }
 			
-						/* HEADLINE
+			/* HEADLINE
 			================================================== */
 			if (data.headline != null && data.headline != "") {
 				c.has.headline	=	true;
 				if (data.type == "start") {
 					c.text		+=	VMM.createElement("h2", VMM.Util.linkify_with_twitter(data.headline, "_blank"), "start");
-				} else { 
+				} 
+    //     else { 
 
-          // // if(data.story != undefined){
-          // //   var strHeadLine = "{{storiesObject['"+ data.story.ref_era + "']['" + data.story.$id + "'].headline}}";
-          // //   c.text += VMM.createElement("h3", VMM.Util.linkify_with_twitter(strHeadLine, "_blank"), "editable editable-click ng-scope ng-binding", "editable-text=\"storiesObject[\'" + data.story.ref_era + "\'][\'" + data.story.$id + "\'].headline\" href='#'");
-          // // };
-          // c.text		+=	VMM.createElement("h3", VMM.Util.linkify_with_twitter(data.headline, "_blank"));
-				}
+    //       if(data.story != undefined){
+    //         var strHeadLine = "{{storiesObject['"+ data.story.ref_era + "']['" + data.story.$id + "'].headline}}";
+    //         c.text += VMM.createElement("h3", VMM.Util.linkify_with_twitter(strHeadLine, "_blank"), "editable editable-click ng-scope ng-binding", "editable-text=\"storiesObject[\'" + data.story.ref_era + "\'][\'" + data.story.$id + "\'].headline\" href='#'");
+    //       };
+    //       // c.text		+=	VMM.createElement("h3", VMM.Util.linkify_with_twitter(data.headline, "_blank"));
+				// }
 			}
 
 			/* TEXT
@@ -247,7 +248,7 @@ if (typeof VMM.Slider != 'undefined') {
         //   c.text += VMM.createElement("story-comments", null, null, "story-key="+data.story.$id);
         // };
         if (data.type == "start") {
-          c.text			+= VMM.createElement("p", VMM.Util.linkify_with_twitter(data.text, "_blank"));
+          c.text      += VMM.createElement("p", VMM.Util.linkify_with_twitter(data.text, "_blank"));
         }
 			}
 			
@@ -255,12 +256,12 @@ if (typeof VMM.Slider != 'undefined') {
 				c.text		= VMM.createElement("div", c.text, "container");
 				//$text		=	VMM.appendAndGetElement($slide, "<div>", "text", c.text);
 
-        if (data.type == "start" ) {
-          $text   = VMM.appendAndGetElement($slide, "<div>", "text", VMM.TextElement.create(c.text));  
+        if (data.type == "start") {
+          c.text    = VMM.createElement("div", c.text, "container");
         } else {
-          c.text  = VMM.createElement('story-detail', null, null, "story-key="+data.story.$id);
-          $text   = VMM.appendAndGetElement($slide, "<div>", "text", VMM.TextElement.create(c.text));
+          c.text    = VMM.createElement("story-detail", " ", null, "story-key="+data.story.$id);
         }
+        $text   = VMM.appendAndGetElement($slide, "<div>", "text", VMM.TextElement.create(c.text));  
 			}
 			
 			/* SLUG
