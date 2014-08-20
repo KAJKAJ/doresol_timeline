@@ -157,7 +157,8 @@ function createStoryJS(c, src) {
 	if (storyjs_e_config.js.match("locale")) {
 		// TODO Issue #618 better splitting
 		storyjs_e_config.lang = storyjs_e_config.js.split("locale/")[1].replace(".js", "");
-		storyjs_e_config.js		= path.js + 'timeline-min.js?' + js_version;
+		// storyjs_e_config.js		= path.js + 'timeline-min.js?' + js_version;
+		storyjs_e_config.js		= path.js + 'timeline.js?' + js_version;
 	}
 	
 	if (storyjs_e_config.js.match("/")) {
@@ -167,12 +168,12 @@ function createStoryJS(c, src) {
 		
 		// Use unminified js file if in debug mode
 		storyjs_e_config.js		= path.js  + storyjs_e_config.type;
-		if (storyjs_e_config.debug) {
-			storyjs_e_config.js	+= ".js?"  + js_version;
-		} else {
-			storyjs_e_config.js	+= "-min.js?"  + js_version;
-		}
-		
+		// if (storyjs_e_config.debug) {
+		// 	storyjs_e_config.js	+= ".js?"  + js_version;
+		// } else {
+		// 	storyjs_e_config.js	+= "-min.js?"  + js_version;
+		// }
+		storyjs_e_config.js	+= ".js?"  + js_version;
 		storyjs_e_config.id		= "storyjs-" + storyjs_e_config.type;
 	}
 	
