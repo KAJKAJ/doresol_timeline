@@ -259,7 +259,7 @@ if (typeof VMM.Slider != 'undefined') {
         if (data.type == "start") {
           c.text    = VMM.createElement("div", c.text, "container");
         } else {
-        	c.has.text    =  true;
+        	c.has.text    =  true; 
           c.text    = VMM.createElement("story-detail", null, null,"story-key="+data.story.$id);
         }
         $text   = VMM.appendAndGetElement($slide, "<div>", "text", VMM.TextElement.create(c.text));  
