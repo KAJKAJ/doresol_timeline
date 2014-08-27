@@ -141,7 +141,11 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaType == 'undefined') {
 			media.type = "storify";
 			media.id = d;
 			success = true;
-		} else {
+		} else if (d.match('.mp4')) {
+      media.type = "video";
+      media.id = d;
+      success = true;
+    } else {
 			trace("unknown media");  
 			media.type = "unknown";
 			media.id = d;

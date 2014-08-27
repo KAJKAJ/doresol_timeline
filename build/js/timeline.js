@@ -11096,6 +11096,9 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 				} else if (m.type		==	"storify") { 
 					isTextMedia			=	true;
 					mediaElem			=	"<div class='plain-text-quote'>" + m.id + "</div>";
+			// VIDEO
+        } else if (m.type   ==  "video") { 
+          mediaElem     = "<video controls style='width:95%;'><source src='" + m.id + "' type='video/mp4'>Your browser does not support the video tag.</video>";
 			// IFRAME
 				} else if (m.type		==	"iframe") { 
 					isTextMedia			=	true;
@@ -11279,7 +11282,11 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaType == 'undefined') {
 			media.type = "storify";
 			media.id = d;
 			success = true;
-		} else {
+		} else if (d.match('.mp4')) {
+      media.type = "video";
+      media.id = d;
+      success = true;
+    } else {
 			trace("unknown media");  
 			media.type = "unknown";
 			media.id = d;
