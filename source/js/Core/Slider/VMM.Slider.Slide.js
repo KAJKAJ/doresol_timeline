@@ -185,12 +185,15 @@ if (typeof VMM.Slider != 'undefined') {
 		}
 		
 		var angularCompile = function(element){
-			var injector = element.injector();
-      var scope = element.scope();
-      injector.invoke(function($compile){
-        $compile(element.contents())(scope);
-      });
-		};
+      var angularElement = angular.element(element);
+			var injector = angularElement.injector();
+      var scope = angularElement.scope();
+      if(injector){
+	      injector.invoke(function($compile){
+	        $compile(angularElement.contents())(scope);
+	      });
+	    }
+		}
 
 		var buildSlide = function() {
 			trace("BUILDSLIDE");
