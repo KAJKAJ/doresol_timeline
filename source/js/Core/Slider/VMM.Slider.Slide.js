@@ -187,11 +187,9 @@ if (typeof VMM.Slider != 'undefined') {
 		var angularCompile = function(element){
 			var injector = element.injector();
       var scope = element.scope();
-      if(injector){
-	      injector.invoke(function($compile){
-	        $compile(element.contents())(scope);
-	      });
-	    }
+      injector.invoke(function($compile){
+        $compile(element.contents())(scope);
+      });
 		};
 
 		var buildSlide = function() {
