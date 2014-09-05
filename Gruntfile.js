@@ -40,8 +40,12 @@ module.exports = function (grunt) {
       },
       dist: {
         src: [
-          '<%= sourceFolder %>/js/Core/Library/**/*.js',
-         
+          // '<%= sourceFolder %>/js/Core/Library/**/*.js',
+          '<%= sourceFolder %>/js/Core/Library/jQuery/**/*.js',
+          '<%= sourceFolder %>/js/Core/Library/AES.js',
+          '<%= sourceFolder %>/js/Core/Library/bootstrap-tooltip.js',
+          '<%= sourceFolder %>/js/Core/Library/LazyLoad.js',
+
           '<%= sourceFolder %>/js/Core/Core/VMM.js',
           '<%= sourceFolder %>/js/Core/Core/VMM.Library.js',
           '<%= sourceFolder %>/js/Core/Core/VMM.Browser.js',
