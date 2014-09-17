@@ -9802,7 +9802,8 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 			
 			
 			if (config.start_page) {
-				$backhome = VMM.appendAndGetElement($toolbar, "<div>", "back-home", "<div class='icon'></div>");
+				// $backhome = VMM.appendAndGetElement($toolbar, "<div>", "back-home", "<div class='icon'></div>");
+				$backhome = VMM.appendAndGetElement($toolbar, "<div>", "back-home", "<div><i class='fa fa-reply fa-2x text-success'></i></div>");
 				VMM.bindEvent(".back-home", onBackHome, "click");
 				VMM.Lib.attribute($backhome, "title", VMM.master_config.language.messages.return_to_title);
 				VMM.Lib.attribute($backhome, "rel", "timeline-tooltip");
@@ -9824,8 +9825,10 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 				if (config.start_page) {
 					VMM.Lib.css($toolbar, "top", 27);
 				}
-				$zoomin		= VMM.appendAndGetElement($toolbar, "<div>", "zoom-in", "<div class='icon'></div>");
-				$zoomout	= VMM.appendAndGetElement($toolbar, "<div>", "zoom-out", "<div class='icon'></div>");
+				// $zoomin		= VMM.appendAndGetElement($toolbar, "<div>", "zoom-in", "<div class='icon'></div>");
+				// $zoomout	= VMM.appendAndGetElement($toolbar, "<div>", "zoom-out", "<div class='icon'></div>");
+				$zoomin		= VMM.appendAndGetElement($toolbar, "<div>", "zoom-in", "<div><i class='fa fa-search-plus fa-2x text-success'></i></div>");
+				$zoomout	= VMM.appendAndGetElement($toolbar, "<div>", "zoom-out", "<div><i class='fa fa-search-minus fa-2x text-success'></i></div>");
 				// ZOOM EVENTS
 				VMM.bindEvent($zoomin, onZoomIn, "click");
 				VMM.bindEvent($zoomout, onZoomOut, "click");
