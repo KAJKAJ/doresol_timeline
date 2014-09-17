@@ -6621,12 +6621,14 @@ if(typeof VMM != 'undefined' && typeof VMM.Slider == 'undefined') {
 		================================================== */
 		function buildNavigation() {
 			
-			var temp_icon = "<div class='icon'>&nbsp;</div>";
-			
+			// var temp_icon = "<div class='icon'>&nbsp;</div>";
+			var prevBtn = '<div><i class="fa fa-arrow-circle-left fa-4x text-success"></i></div>';
+			var nextBtn = '<div><i class="fa fa-arrow-circle-right fa-4x text-success"></i></div>';
+
 			navigation.nextBtn = VMM.appendAndGetElement($slider, "<div>", "nav-next");
 			navigation.prevBtn = VMM.appendAndGetElement($slider, "<div>", "nav-previous");
-			navigation.nextBtnContainer = VMM.appendAndGetElement(navigation.nextBtn, "<div>", "nav-container", temp_icon);
-			navigation.prevBtnContainer = VMM.appendAndGetElement(navigation.prevBtn, "<div>", "nav-container", temp_icon);
+			navigation.nextBtnContainer = VMM.appendAndGetElement(navigation.nextBtn, "<div>", "nav-container", nextBtn);
+			navigation.prevBtnContainer = VMM.appendAndGetElement(navigation.prevBtn, "<div>", "nav-container", prevBtn);
 			if (config.type == "timeline") {
 				// navigation.nextDate = VMM.appendAndGetElement(navigation.nextBtnContainer, "<div>", "date", "");
 				// navigation.prevDate = VMM.appendAndGetElement(navigation.prevBtnContainer, "<div>", "date", "");
