@@ -2286,7 +2286,7 @@
   left: 0px;
   height: 150px;
   width: 100%;
-  background-color: #e9e9e9;
+  background-color: #ebf2ee;
 }
 .vco-timeline .vco-navigation .timenav-background .timenav-interval-background {
   position: absolute;
@@ -2347,7 +2347,7 @@
   vertical-align: middle;
   padding-left: 65px;
   font-size: 15px;
-  color: #d0d0d0;
+  color: #ccded4;
   font-weight: bold;
   text-shadow: 0px 1px 1px #ffffff;
 }
@@ -2366,12 +2366,12 @@
 .vco-timeline .vco-navigation .timenav-background .timenav-tag-row-2,
 .vco-timeline .vco-navigation .timenav-background .timenav-tag-row-4,
 .vco-timeline .vco-navigation .timenav-background .timenav-tag-row-6 {
-  background: #f1f1f1;
+  background: #f4f8f6;
 }
 .vco-timeline .vco-navigation .timenav-background .timenav-tag-row-1,
 .vco-timeline .vco-navigation .timenav-background .timenav-tag-row-3,
 .vco-timeline .vco-navigation .timenav-background .timenav-tag-row-5 {
-  background: #e9e9e9;
+  background: #ebf2ee;
 }
 .vco-timeline .vco-navigation .timenav {
   position: absolute;
@@ -2728,8 +2728,8 @@
   width: 100%;
   height: 100%;
   line-height: 0px;
-  background: #e9e9e9;
-  background: rgba(233, 233, 233, 0.33);
+  background: #ebf2ee;
+  background: rgba(235, 242, 238, 0.33);
 }
 .vco-timeline .vco-navigation .timenav .content .era div h3,
 .vco-timeline .vco-navigation .timenav .content .era div h4 {
