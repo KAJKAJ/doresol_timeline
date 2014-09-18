@@ -6931,14 +6931,12 @@ if (typeof VMM.Slider != 'undefined') {
 				if (data.type == "start") {
 					c.text		+=	VMM.createElement("h2", VMM.Util.linkify_with_twitter(data.headline, "_blank"), "start");
 				} 
-    //     else { 
-
-    //       if(data.story != undefined){
-    //         var strHeadLine = "{{storiesObject['"+ data.story.ref_era + "']['" + data.story.$id + "'].headline}}";
-    //         c.text += VMM.createElement("h3", VMM.Util.linkify_with_twitter(strHeadLine, "_blank"), "editable editable-click ng-scope ng-binding", "editable-text=\"storiesObject[\'" + data.story.ref_era + "\'][\'" + data.story.$id + "\'].headline\" href='#'");
-    //       };
-    //       // c.text		+=	VMM.createElement("h3", VMM.Util.linkify_with_twitter(data.headline, "_blank"));
-				// }
+        else { 
+        	if(data.headline != undefined && data.headline != ""){
+            c.headline = VMM.createElement("h3", VMM.Util.linkify_with_twitter(data.headline, "_blank"));
+            VMM.appendAndGetElement($slide, "<div>",null, c.headline);  
+          }
+				}
 			}
 
 			/* TEXT
