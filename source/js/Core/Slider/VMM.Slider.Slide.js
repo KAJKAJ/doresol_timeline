@@ -253,6 +253,10 @@ if (typeof VMM.Slider != 'undefined') {
         }
 			}
 			
+			if(data.story && data.story.videoUrl){
+				c.has.text = true;
+			}
+			
 			if (c.has.text) {
 				c.text		= VMM.createElement("div", c.text, "container");
 				//$text		=	VMM.appendAndGetElement($slide, "<div>", "text", c.text);
