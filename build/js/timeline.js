@@ -6966,7 +6966,7 @@ if (typeof VMM.Slider != 'undefined') {
           c.text    = VMM.createElement("div", c.text, "container");
         } else {
         	c.has.text    =  true; 
-          c.text    = VMM.createElement("story-detail", null, null,"story-key="+data.story.$id);
+          c.text    = VMM.createElement("story-detail", null, null,"story-key="+data.story.$id+" memorial-key="+data.story.ref_memorial);
         }
         $text   = VMM.appendAndGetElement($slide, "<div>", "text", VMM.TextElement.create(c.text));  
 			}
