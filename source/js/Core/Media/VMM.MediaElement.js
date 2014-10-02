@@ -100,7 +100,7 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 			} 
 		},
 		
-		create: function(data, uid) {
+		create: function(data, uid, story) {
 			var _valid = false,
 				//loading_messege			=	"<span class='messege'><p>" + VMM.master_config.language.messages.loading + "</p></span>";
 				loading_messege			=	VMM.MediaElement.loadingmessage(VMM.master_config.language.messages.loading + "...");
@@ -125,7 +125,13 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 					if (m.id.match("https://")) {
 						m.id = m.id.replace("https://","http://");
 					}
-					mediaElem			=	"<div class='media-image media-shadow'><img src='" + m.id + "' class='media-image'></div>";
+
+					var additionalParams = "";
+					if( story) {
+						additionalParams = 'timeline-img ' + "story-key="+story.$id + " memorial-key="+story.ref_memorial;
+					}	
+
+					mediaElem			=	"<div class='media-image media-shadow'><img src='" + m.id + "' class='media-image' "+additionalParams+"></div>";
 			// FLICKR
 				} else if (m.type		==	"flickr") {
 					//mediaElem			=	"<div class='media-image media-shadow' id='" + uid + "'>" + loading_messege + "</div>";
