@@ -125,13 +125,13 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 					if (m.id.match("https://")) {
 						m.id = m.id.replace("https://","http://");
 					}
+					if(story) {
+						var ngInit = 'ng-init="init(\'' + story.$id + '\',\'' + story.ref_memorial + '\')"';
+						mediaElem			=	"<div class='media-image media-shadow hover-cursor hover-opacity' ng-controller='StoryDetailCtrl' " + ngInit + " ng-click='modalComment()'><img ng-src='" + m.id + "' class='media-image'></div>";
+					} else {
+						mediaElem			=	"<div class='media-image media-shadow'><img src='" + m.id + "' class='media-image' ></div>";
+					}
 
-					var additionalParams = "";
-					if( story) {
-						additionalParams = 'timeline-img ' + "story-key="+story.$id + " memorial-key="+story.ref_memorial;
-					}	
-
-					mediaElem			=	"<div class='media-image media-shadow'><img src='" + m.id + "' class='media-image' "+additionalParams+"></div>";
 			// FLICKR
 				} else if (m.type		==	"flickr") {
 					//mediaElem			=	"<div class='media-image media-shadow' id='" + uid + "'>" + loading_messege + "</div>";
