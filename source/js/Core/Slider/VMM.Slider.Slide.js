@@ -185,12 +185,15 @@ if (typeof VMM.Slider != 'undefined') {
 		}
 		
 		var angularCompile = function(element){
-			var injector = element.injector();
-      var scope = element.scope();
-      injector.invoke(function($compile){
-        $compile(element.contents())(scope);
-      });
-		};
+      var angularElement = angular.element(element);
+			var injector = angularElement.injector();
+      var scope = angularElement.scope();
+      if(injector){
+	      injector.invoke(function($compile){
+	        $compile(angularElement.contents())(scope);
+	      });
+	    }
+		}
 
 		var buildSlide = function() {
 			trace("BUILDSLIDE");
@@ -227,14 +230,12 @@ if (typeof VMM.Slider != 'undefined') {
 				if (data.type == "start") {
 					c.text		+=	VMM.createElement("h2", VMM.Util.linkify_with_twitter(data.headline, "_blank"), "start");
 				} 
-    //     else { 
-
-    //       if(data.story != undefined){
-    //         var strHeadLine = "{{storiesObject['"+ data.story.ref_era + "']['" + data.story.$id + "'].headline}}";
-    //         c.text += VMM.createElement("h3", VMM.Util.linkify_with_twitter(strHeadLine, "_blank"), "editable editable-click ng-scope ng-binding", "editable-text=\"storiesObject[\'" + data.story.ref_era + "\'][\'" + data.story.$id + "\'].headline\" href='#'");
-    //       };
-    //       // c.text		+=	VMM.createElement("h3", VMM.Util.linkify_with_twitter(data.headline, "_blank"));
-				// }
+        else { 
+        	if(data.headline != undefined && data.headline != ""){
+            c.headline = VMM.createElement("h3", VMM.Util.linkify_with_twitter(data.headline, "_blank"));
+            VMM.appendAndGetElement($slide, "<div>",null, c.headline);  
+          }
+				}
 			}
 
 			/* TEXT
@@ -252,14 +253,19 @@ if (typeof VMM.Slider != 'undefined') {
         }
 			}
 			
-			if (c.has.text || c.has.headline) {
+			if(data.story && data.story.videoUrl){
+				c.has.text = true;
+			}
+			
+			if (c.has.text) {
 				c.text		= VMM.createElement("div", c.text, "container");
 				//$text		=	VMM.appendAndGetElement($slide, "<div>", "text", c.text);
 
         if (data.type == "start") {
           c.text    = VMM.createElement("div", c.text, "container");
         } else {
-          c.text    = VMM.createElement("story-detail", null, null, "story-key="+data.story.$id+" add-comment='addComment()'");
+        	c.has.text    =  true; 
+          c.text    = VMM.createElement("story-detail", null, null,"story-key="+data.story.$id+" memorial-key="+data.story.ref_memorial);
         }
         $text   = VMM.appendAndGetElement($slide, "<div>", "text", VMM.TextElement.create(c.text));  
 			}
